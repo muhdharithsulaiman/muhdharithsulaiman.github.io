@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Harith | CV Portfolio</title>
+    <title>Muhammad Harith | Electronics Engineering Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #f7f5ee;
-            --card-bg: #ffffff;
-            --text-main: #333333;
-            --text-muted: #666666;
-            --accent-teal: #0d5c55;
-            --accent-teal-light: #e6f2f0;
+            --bg-dark: #0a0f1d;
+            --bg-card: #131c31;
+            --neon-cyan: #00f2fe;
+            --neon-blue: #4facfe;
+            --text-main: #ffffff;
+            --text-muted: #8fa0dd;
             --whatsapp-green: #25D366;
             --telegram-blue: #0088cc;
         }
@@ -24,139 +24,249 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.6;
             padding: 40px 20px;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 1050px;
             margin: 0 auto;
         }
 
-        /* Card Layout Layout */
+        /* Futuristic Glassmorphism Card Style */
         .card {
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
+            background: var(--bg-card);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Header Specific Styles */
-        .header-card {
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--neon-cyan), var(--neon-blue));
+        }
+
+        /* Header / Hero Section */
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr;
             text-align: center;
+            gap: 20px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
-        .subtitle {
-            display: inline-block;
-            background-color: var(--accent-teal-light);
-            color: var(--accent-teal);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 15px auto;
+        }
+
+        .stats-badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        /* Button Grid Framework */
-        .contact-buttons-container {
+        .badge {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Buttons styling */
+        .btn-container {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             justify-content: center;
-            margin-top: 15px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 22px;
-            border-radius: 30px;
+            padding: 12px 24px;
+            border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
             text-decoration: none;
             border: none;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
-        }
-
-        .btn-download {
-            background-color: var(--accent-teal);
             color: white;
         }
 
-        .btn-email {
-            background-color: transparent;
-            color: var(--accent-teal);
-            border: 1.5px solid var(--accent-teal);
-        }
-
-        .btn-whatsapp {
-            background-color: var(--whatsapp-green);
-            color: white;
-        }
-
-        .btn-telegram {
-            background-color: var(--telegram-blue);
-            color: white;
-        }
+        .btn-main { background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan)); color: #0a0f1d; }
+        .btn-email { background: transparent; border: 1px solid var(--neon-cyan); color: var(--neon-cyan); }
+        .btn-whatsapp { background-color: var(--whatsapp-green); }
+        .btn-telegram { background-color: var(--telegram-blue); }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0.95;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
         }
 
-        /* Content Sections */
+        /* Dynamic Columns Layout */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .resume-grid { grid-template-columns: 1fr; }
+        }
+
         .section-title {
-            font-size: 1.4rem;
-            color: var(--accent-teal);
+            font-size: 1.5rem;
             margin-bottom: 20px;
+            color: var(--neon-cyan);
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 2px solid var(--accent-teal-light);
-            padding-bottom: 8px;
         }
 
-        .edu-item {
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 3px solid var(--accent-teal);
+        /* Timeline styling for Experience & Education */
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid rgba(79, 172, 254, 0.3);
+            margin-bottom: 25px;
         }
 
-        .edu-item:last-child {
-            margin-bottom: 0;
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -6px; top: 6px;
+            width: 10px; height: 10px;
+            background-color: var(--neon-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-cyan);
         }
 
-        .edu-degree {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-main);
+        .time-period { font-size: 0.85rem; color: var(--neon-blue); font-weight: bold; }
+        .item-title { font-size: 1.2rem; font-weight: 600; margin: 2px 0; }
+        .item-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 5px; }
+
+        /* Skills Pill Layout */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .edu-school {
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .skill-pill:hover {
+            background: rgba(79, 172, 254, 0.15);
+            border-color: var(--neon-blue);
+        }
+
+        /* Achievement List */
+        .achieve-list li {
+            list-style: none;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .achieve-list li::before {
+            content: '\f091';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0; color: #ffd700;
+        }
+
+        /* --- EVIDENCE & PROJECT TRACKER --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: #1b2744;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--text-muted);
-            font-weight: 500;
         }
 
-        /* Responsive Fixes */
-        @media (max-width: 600px) {
-            body { padding: 20px 10px; }
-            .card { padding: 25px 20px; }
-            h1 { font-size: 1.7rem; }
-            .btn { width: 100%; justify-content: center; }
+        .project-info { padding: 15px; }
+        .project-name { font-size: 1.1rem; font-weight: 600; color: var(--neon-cyan); margin-bottom: 5px; }
+        .project-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Project Form panel input elements */
+        .panel-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .panel-form input, .panel-form textarea {
+            background: #1b2744;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            padding: 10px;
+            color: white;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        .panel-form input:focus, .panel-form textarea:focus {
+            outline: 1px solid var(--neon-cyan);
         }
     </style>
 </head>
@@ -165,71 +275,204 @@
     <div class="container">
 
         <div class="card header-card">
-            <h1>MUHAMMAD HARITH BIN SULAIMAN</h1>
-            <div class="subtitle">
-                <i class="fas fa-graduation-cap"></i> Universiti Malaysia Perlis (UniMAP)
-            </div>
-            
-            <div class="contact-buttons-container">
-                <a href="resume.pdf" class="btn btn-download" target="_blank">
-                    <i class="fas fa-file-download"></i> Download CV
-                </a>
+            <div class="header-grid">
+                <div>
+                    <h1>MUHAMMAD HARITH BIN SULAIMAN</h1>
+                    <p class="tagline">Electronic Engineering & Technology Student specializing in advanced system designs, electronics automation, and smart robotic invention projects.</p>
+                    
+                    <div class="stats-badge-container">
+                        <span class="badge"><i class="fas fa-university"></i> UniMAP B.Eng Student</span>
+                        <span class="badge"><i class="fas fa-chart-line"></i> Degree CGPA: 3.78</span>
+                        <span class="badge"><i class="fas fa-graduation-cap"></i> Diploma CGPA: 3.91</span>
+                        <span class="badge"><i class="fas fa-map-marker-alt"></i> Selangor, Malaysia</span>
+                    </div>
 
-                <button id="emailBtn" class="btn btn-email" onclick="copyEmail()">
-                    <i class="fas fa-envelope"></i> muhdharithsulaiman16@gmail.com
-                </button>
-
-                <a href="https://wa.me/60193347191?text=Hi%20Harith,%20I%20visited%20your%20portfolio%20and%20wanted%20to%20connect!" 
-                   target="_blank" 
-                   class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-
-                <a href="https://t.me/your_telegram_username" 
-                   target="_blank" 
-                   class="btn btn-telegram">
-                    <i class="fab fa-telegram-plane"></i> Telegram
-                </a>
+                    <div class="btn-container">
+                        <a href="resume.pdf" class="btn btn-main" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Download Full Resume
+                        </a>
+                        <button id="emailBtn" class="btn btn-email" onclick="copyEmail()">
+                            <i class="fas fa-envelope"></i> muhdharithsulaiman16@gmail.com
+                        </button>
+                        <a href="https://wa.me/60193347191?text=Hi%20Harith,%20I%20saw%20your%20engineering%20portfolio..." target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="https://t.me/your_telegram_username" target="_blank" class="btn btn-telegram">
+                            <i class="fab fa-telegram-plane"></i> Telegram
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <h2 class="section-title"><i class="fas fa-university"></i> Education & Credentials</h2>
+        <div class="resume-grid">
             
-            <div class="edu-item">
-                <div class="edu-degree">Degree in Technology & Engineering Electronic (Electronic System)</div>
-                <div class="edu-school">Universiti Malaysia Perlis (UniMAP)</div>
+            <div class="left-col">
+                
+                <div class="card">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Industrial Experience</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="time-period">2024</div>
+                        <div class="item-title">Automation Engineer</div>
+                        <div class="item-sub">ALPS ALPINE MALAYSIA</div>
+                        <p style="color: var(--text-muted); font-size:0.9rem;">Acquired extensive industrial field experience tracking, troubleshooting, and repairing high-end production electronic systems and specialized automation machinery.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="time-period">2022</div>
+                        <div class="item-title">Computer & Mobile Phone Technician</div>
+                        <div class="item-sub">Dr. Gadget Kesuma</div>
+                        <p style="color: var(--text-muted); font-size:0.9rem;">Managed logic board diagnostics, localized troubleshooting, hardware optimization, and replacement of micro-components and delicate mobile circuits.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education Pathway</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="time-period">2024 - 2028 (Estimated)</div>
+                        <div class="item-title">Degree in Technology & Engineering Electronic (Electronic System)</div>
+                        <div class="item-sub">Universiti Malaysia Perlis (UniMAP)</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="time-period">2022 - 2025</div>
+                        <div class="item-title">Diploma Teknologi Elektronik (DVM)</div>
+                        <div class="item-sub">Kolej Vokasional Kuala Klawang</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title"><i class="fas fa-trophy"></i> Inventions & Competition Achievements</h2>
+                    <ul class="achieve-list" style="color: var(--text-muted); font-size: 0.95rem;">
+                        <li><strong>Finalist Awards:</strong> 3rd Place & Medallion status in the Final World Skills Malaysia Belia Competition (WSMB) organized by JPK.</li>
+                        <li><strong>Pre-Qualification:</strong> Secured 2nd Place in World Skills Malaysia Belia Competitions.</li>
+                        <li><strong>Robotics Champion:</strong> Johan (1st Place) at Zone Level and Excellence Award winner at National Level Robotics Competitions backed by Cytron Technologies.</li>
+                        <li><strong>KV Skills Mastery:</strong> National Level Naib Johan & Medallion recipient; Zone Level Champion.</li>
+                    </ul>
+                </div>
+
             </div>
 
-            <div class="edu-item">
-                <div class="edu-degree">Diploma in Technology Electronic</div>
-                <div class="edu-school">Universiti Malaysia Perlis (UniMAP)</div>
+            <div class="right-col">
+                
+                <div class="card">
+                    <h2 class="section-title"><i class="fas fa-microchip"></i> System Expertise</h2>
+                    <div class="skills-container">
+                        <span class="skill-pill" style="color: var(--neon-cyan);">Proteus 8 (Expert)</span>
+                        <span class="skill-pill" style="color: var(--neon-cyan);">Eagle PCB (Expert)</span>
+                        <span class="skill-pill" style="color: var(--neon-cyan);">Arduino IDE (Expert)</span>
+                        <span class="skill-pill" style="color: var(--neon-cyan);">PIC IDE (Expert)</span>
+                        <span class="skill-pill">Altium Designer</span>
+                        <span class="skill-pill">STM32 CubeIDE</span>
+                        <span class="skill-pill">Circuit Design</span>
+                        <span class="skill-pill">PCB Troubleshooting</span>
+                        <span class="skill-pill">AutoCAD (Basic)</span>
+                        <span class="skill-pill">C/C++ Scripting</span>
+                        <span class="skill-pill">Java</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title"><i class="fas fa-user-shield"></i> Core Strengths</h2>
+                    <div class="skills-container">
+                        <span class="skill-pill">Majlis Perwakilan Pelajar (MPP)</span>
+                        <span class="skill-pill">Fast-Paced Self Learner</span>
+                        <span class="skill-pill">Invention Systems Engineering</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title"><i class="fas fa-globe"></i> Languages</h2>
+                    <p style="font-size:0.9rem;">• Malay (Native)</p>
+                    <p style="font-size:0.9rem;">• English (Professional)</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card" id="project-evidence-section">
+            <h2 class="section-title"><i class="fas fa-folder-open"></i> Project Evidence Showroom</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">Use the live injection panel below to instantly map and add new project documentation summaries or hardware evidence strings straight onto your web panel interface.</p>
+            
+            <div class="project-grid" id="projectGrid">
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-robot fa-3x"></i></div>
+                    <div class="project-info">
+                        <div class="project-name">Cytron Certified Autonomous Robot</div>
+                        <div class="project-desc">Zone level champion hardware blueprint utilizing complex embedded sensor logic systems.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-form">
+                <h3 style="color: var(--neon-blue); font-size:1.1rem;"><i class="fas fa-plus-circle"></i> Local Interface Injector Control</h3>
+                <input type="text" id="projTitle" placeholder="Enter Project Name (e.g. IoT Smart Home Board)">
+                <input type="text" id="projImg" placeholder="Image Name or Web URL (e.g., project1.png)">
+                <textarea id="projDesc" rows="3" placeholder="Brief technical summary of your development evidence, chip models, or code stacks..."></textarea>
+                <button type="button" class="btn btn-main" onclick="addNewProject()" style="width:fit-content; align-self: flex-start; margin-top: 5px;">
+                    <i class="fas fa-bolt"></i> Inject Project Into UI
+                </button>
             </div>
         </div>
 
     </div>
 
     <script>
+    // Copy email feature
     function copyEmail() {
         const email = "muhdharithsulaiman16@gmail.com";
         navigator.clipboard.writeText(email).then(() => {
             const btn = document.getElementById('emailBtn');
-            const originalContent = btn.innerHTML;
-            
-            // Trigger feedback visual state
-            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            btn.style.backgroundColor = '#25D366';
-            btn.style.color = 'white';
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Email Copied!';
             btn.style.borderColor = '#25D366';
-            
-            // Revert state back seamlessly after 2 seconds
+            btn.style.color = '#25D366';
             setTimeout(() => {
-                btn.innerHTML = originalContent;
-                btn.style.backgroundColor = 'transparent';
-                btn.style.color = '#0d5c55';
-                btn.style.borderColor = '#0d5c55';
+                btn.innerHTML = original;
+                btn.style.borderColor = 'var(--neon-cyan)';
+                btn.style.color = 'var(--neon-cyan)';
             }, 2000);
         });
+    }
+
+    // Dynamic Client Interface Injection Code
+    function addNewProject() {
+        const title = document.getElementById('projTitle').value;
+        const imgInput = document.getElementById('projImg').value;
+        const desc = document.getElementById('projDesc').value;
+
+        if(!title || !desc) {
+            alert('Please provide at least a project title and technical description!');
+            return;
+        }
+
+        const grid = document.getElementById('projectGrid');
+        
+        // Generate new project element block
+        const newCard = document.createElement('div');
+        newCard.className = 'project-card';
+        
+        let visualElement = `<div class="project-img"><i class="fas fa-microchip fa-3x"></i></div>`;
+        if(imgInput) {
+            visualElement = `<img src="${imgInput}" alt="${title}" class="project-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x160/1b2744/ffffff?text=Image+Not+Found';">`;
+        }
+
+        newCard.innerHTML = `
+            ${visualElement}
+            <div class="project-info">
+                <div class="project-name">${title}</div>
+                <div class="project-desc">${desc}</div>
+            </div>
+        `;
+
+        grid.appendChild(newCard);
+
+        // Clear input form spaces
+        document.getElementById('projTitle').value = '';
+        document.getElementById('projImg').value = '';
+        document.getElementById('projDesc').value = '';
     }
     </script>
 </body>
