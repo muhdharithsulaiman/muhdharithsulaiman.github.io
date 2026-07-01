@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Harith | CV Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f7f5ee;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --accent-teal: #0d5c55;
+            --accent-teal-light: #e6f2f0;
+            --whatsapp-green: #25D366;
+            --telegram-blue: #0088cc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Card Layout Layout */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        /* Header Specific Styles */
+        .header-card {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            display: inline-block;
+            background-color: var(--accent-teal-light);
+            color: var(--accent-teal);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Button Grid Framework */
+        .contact-buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-download {
+            background-color: var(--accent-teal);
+            color: white;
+        }
+
+        .btn-email {
+            background-color: transparent;
+            color: var(--accent-teal);
+            border: 1.5px solid var(--accent-teal);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+        }
+
+        .btn-telegram {
+            background-color: var(--telegram-blue);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0.95;
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--accent-teal-light);
+            padding-bottom: 8px;
+        }
+
+        .edu-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-teal);
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .edu-school {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 600px) {
+            body { padding: 20px 10px; }
+            .card { padding: 25px 20px; }
+            h1 { font-size: 1.7rem; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="card header-card">
+            <h1>MUHAMMAD HARITH BIN SULAIMAN</h1>
+            <div class="subtitle">
+                <i class="fas fa-graduation-cap"></i> Universiti Malaysia Perlis (UniMAP)
+            </div>
+            
+            <div class="contact-buttons-container">
+                <a href="resume.pdf" class="btn btn-download" target="_blank">
+                    <i class="fas fa-file-download"></i> Download CV
+                </a>
+
+                <button id="emailBtn" class="btn btn-email" onclick="copyEmail()">
+                    <i class="fas fa-envelope"></i> muhdharithsulaiman16@gmail.com
+                </button>
+
+                <a href="https://wa.me/60193347191?text=Hi%20Harith,%20I%20visited%20your%20portfolio%20and%20wanted%20to%20connect!" 
+                   target="_blank" 
+                   class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+
+                <a href="https://t.me/your_telegram_username" 
+                   target="_blank" 
+                   class="btn btn-telegram">
+                    <i class="fab fa-telegram-plane"></i> Telegram
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-university"></i> Education & Credentials</h2>
+            
+            <div class="edu-item">
+                <div class="edu-degree">Degree in Technology & Engineering Electronic (Electronic System)</div>
+                <div class="edu-school">Universiti Malaysia Perlis (UniMAP)</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-degree">Diploma in Technology Electronic</div>
+                <div class="edu-school">Universiti Malaysia Perlis (UniMAP)</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+    function copyEmail() {
+        const email = "muhdharithsulaiman16@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const btn = document.getElementById('emailBtn');
+            const originalContent = btn.innerHTML;
+            
+            // Trigger feedback visual state
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.style.backgroundColor = '#25D366';
+            btn.style.color = 'white';
+            btn.style.borderColor = '#25D366';
+            
+            // Revert state back seamlessly after 2 seconds
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.style.backgroundColor = 'transparent';
+                btn.style.color = '#0d5c55';
+                btn.style.borderColor = '#0d5c55';
+            }, 2000);
+        });
+    }
+    </script>
+</body>
+</html>
